@@ -1,518 +1,56 @@
-/* リセットCSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* HARIBOWロゴのスタイル */
+.haribow-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 基本設定 */
-:root {
-    --youtube-red: #ff0000;
-    --youtube-red-hover: #cc0000;
-    --youtube-dark-red: #b71c1c;
-    --youtube-light-red: #ffebee;
-    --background-color: #fafafa;
-    --card-background: #ffffff;
-    --text-primary: #0f0f0f;
-    --text-secondary: #606060;
-    --border-color: #e0e0e0;
-    --success-color: #00c851;
-    --error-color: #ff4444;
-    --warning-color: #ffbb33;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --radius: 8px;
-    --transition: all 0.3s ease;
-}
-
-body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-primary);
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ヘッダー */
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.logo .fab.fa-youtube {
-    font-size: 48px;
-    color: var(--youtube-red);
-}
-
-.logo h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-primary);
+.logo-text h1 {
     margin: 0;
 }
 
-/* カード共通スタイル */
-.card {
-    background: var(--card-background);
-    border-radius: var(--radius);
-    padding: 30px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.card:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card h2 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card h2 i {
-    color: var(--youtube-red);
-}
-
-/* APIキーセクション */
-.api-key-section {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.description {
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 15px 50px 15px 15px;
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius);
-    font-size: 16px;
-    transition: var(--transition);
-    background: #fff;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: var(--youtube-red);
-    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
-}
-
-.toggle-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-.toggle-btn:hover {
-    background: var(--youtube-light-red);
-    color: var(--youtube-red);
-}
-
-/* ボタンスタイル */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: var(--radius);
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-    min-width: 140px;
-}
-
-.btn-primary {
-    background: var(--youtube-red);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--youtube-red-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-}
-
-.btn-search {
-    background: var(--youtube-red);
-    color: white;
-    font-size: 18px;
-    padding: 20px 40px;
-    min-width: 300px;
-}
-
-.btn-search:hover {
-    background: var(--youtube-red-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
-}
-
-.btn-secondary {
-    background: #f5f5f5;
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    background: #e0e0e0;
-    border-color: var(--text-secondary);
-}
-
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
-}
-
-/* メインコンテンツ */
-.main-content {
-    flex: 1;
-}
-
-.search-section {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
-
-.search-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.search-header h2 {
-    margin: 0;
-    flex: 1;
-    text-align: left;
-}
-
-.settings-btn {
-    font-size: 14px;
+/* 注意文言のスタイル */
+.disclaimer {
+    font-size: 13px;
+    color: #666;
+    margin-top: 15px;
     padding: 10px 20px;
-    min-width: auto;
-}
-
-.search-info {
-    color: var(--text-secondary);
-    font-size: 16px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* ローディングセクション */
-.loading-section {
-    text-align: center;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    font-style: italic;
     max-width: 600px;
-    margin: 0 auto;
-}
-
-.loading-spinner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 4px solid var(--youtube-light-red);
-    border-top: 4px solid var(--youtube-red);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loading-text {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--youtube-red);
-    margin-bottom: 15px;
-}
-
-.progress-info {
-    color: var(--text-secondary);
-    font-size: 14px;
-}
-
-/* 結果表示セクション */
-.result-section {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.result-display {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.total-views {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-    padding: 30px;
-    background: linear-gradient(135deg, var(--youtube-light-red), #fff);
-    border-radius: var(--radius);
-    border-left: 5px solid var(--youtube-red);
-}
-
-.total-views .label {
-    font-size: 18px;
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-    font-weight: 400;
-}
-
-.total-views .count {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--youtube-red);
-    margin-bottom: 5px;
-    text-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
-}
-
-.total-views .unit {
-    font-size: 20px;
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-.search-info-display {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.search-info-display p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-size: 16px;
-}
-
-.search-info-display i {
-    color: var(--youtube-red);
-}
-
-/* グラフセクション */
-.chart-section {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.chart-container {
-    position: relative;
-    height: 400px;
-    margin-bottom: 20px;
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 20px;
-}
-
-.chart-controls {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
-/* エラーセクション */
-.error-section {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.error-card {
-    border-left: 5px solid var(--error-color);
-    background: linear-gradient(135deg, #ffebee, #fff);
-}
-
-.error-card h2 {
-    color: var(--error-color);
-}
-
-.error-card h2 i {
-    color: var(--error-color);
-}
-
-.error-message {
-    background: #fff;
-    padding: 20px;
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-    border: 1px solid #ffcdd2;
-    color: var(--text-primary);
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-/* フッター */
-.footer {
-    text-align: center;
-    padding: 30px 0;
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
-    margin-top: 40px;
-}
-
-.footer p {
-    margin-bottom: 5px;
-}
-
-/* レスポンシブデザイン */
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
+    .haribow-logo {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
     }
     
-    .logo h1 {
-        font-size: 24px;
-    }
-    
-    .logo .fab.fa-youtube {
-        font-size: 36px;
-    }
-    
-    .card {
-        padding: 20px;
-    }
-    
-    .search-header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .search-header h2 {
-        text-align: center;
-    }
-    
-    .btn-search {
-        font-size: 16px;
-        padding: 15px 25px;
-        min-width: 250px;
-    }
-    
-    .total-views .count {
-        font-size: 36px;
-    }
-    
-    .search-info-display {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .chart-container {
-        height: 300px;
-        padding: 15px;
+    .disclaimer {
+        font-size: 12px;
+        padding: 8px 15px;
+        margin-top: 10px;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
     
-    .btn-search {
-        min-width: 200px;
-        font-size: 14px;
+    .haribow-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
-    
-    .total-views .count {
-        font-size: 28px;
-    }
-    
-    .input-group input {
-        font-size: 14px;
-    }
-}
-
-/* アニメーション */
-.card {
-    animation: fadeInUp 0.6s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* アクセシビリティ */
-.btn:focus,
-input:focus {
-    outline: 2px solid var(--youtube-red);
-    outline-offset: 2px;
-}
-
-/* 成功メッセージ */
-.success-message {
-    background: var(--success-color);
-    color: white;
-    padding: 15px;
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 500;
-}
-
-/* 数字のカンマ区切り表示 */
-.count {
-    font-variant-numeric: tabular-nums;
 }
