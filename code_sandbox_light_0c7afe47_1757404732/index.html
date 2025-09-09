@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARIBOW YouTube 総再生回数チェッカー</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>HARIBOW 総再生回数チェッカー</h1>
+            </div>
+        </header>
+
+        <!-- APIキー設定セクション -->
+        <section class="api-key-section" id="apiKeySection" style="display: none;">
+            <div class="card">
+                <h2><i class="fas fa-key"></i> YouTube API キー設定</h2>
+                <p class="description">
+                    YouTube Data APIキーを入力してください。<br>
+                    <small>APIキーは安全にブラウザに保存されます。</small>
+                </p>
+                <div class="input-group">
+                    <input type="password" id="apiKeyInput" placeholder="YouTube Data API キーを入力..." maxlength="100">
+                    <button type="button" id="toggleApiKey" class="toggle-btn">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <button id="saveApiKey" class="btn btn-primary">
+                    <i class="fas fa-save"></i> APIキーを保存
+                </button>
+                <button id="cancelApiKey" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> キャンセル
+                </button>
+            </div>
+        </section>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content" id="mainContent">
+            <!-- 検索セクション -->
+            <section class="search-section">
+                <div class="card">
+                    <div class="search-header">
+                        <h2>HARIBOW関連動画の総再生回数を調べる</h2>
+                        <button id="settingsButton" class="btn btn-secondary settings-btn">
+                            <i class="fas fa-cog"></i> 設定
+                        </button>
+                    </div>
+                    <p class="search-info">
+                        YouTubeから"HARIBOW"を含む動画を検索し、総再生回数を集計します。
+                    </p>
+                    <button id="searchButton" class="btn btn-search">
+                        <i class="fas fa-search"></i> 総再生回数を調べる
+                    </button>
+                </div>
+            </section>
+
+            <!-- ローディングセクション -->
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="card">
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p class="loading-text">動画を検索中...</p>
+                        <div class="progress-info">
+                            <p id="progressText">検索を開始しています...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 結果表示セクション -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="card">
+                    <h2><i class="fas fa-chart-line"></i> 検索結果</h2>
+                    <div class="result-display">
+                        <div class="total-views">
+                            <span class="label">HARIBOW YouTube総再生回数</span>
+                            <span class="count" id="totalViewCount">0</span>
+                            <span class="unit">回</span>
+                        </div>
+                        <div class="search-info-display">
+                            <p><i class="fas fa-video"></i> 検索動画数: <span id="videoCount">0</span>本</p>
+                            <p><i class="fas fa-calendar"></i> 検索日時: <span id="searchDate">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- グラフセクション -->
+            <section class="chart-section" id="chartSection" style="display: none;">
+                <div class="card">
+                    <h2><i class="fas fa-chart-area"></i> 検索履歴グラフ</h2>
+                    <div class="chart-container">
+                        <canvas id="historyChart" style="height: 400px;"></canvas>
+                    </div>
+                    <div class="chart-controls">
+                        <button id="clearHistory" class="btn btn-secondary">
+                            <i class="fas fa-trash"></i> 履歴をクリア
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- エラーセクション -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="card error-card">
+                    <h2><i class="fas fa-exclamation-triangle"></i> エラーが発生しました</h2>
+                    <div class="error-message" id="errorMessage"></div>
+                    <button id="retryButton" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> 再試行
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy; 2024 HARIBOW YouTube 総再生回数チェッカー</p>
+            <p><small>このツールはYouTube Data API v3を使用しています</small></p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
